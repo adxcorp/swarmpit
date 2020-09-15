@@ -38,7 +38,10 @@ services:
         reservations:
           cpus: '0.15'
           memory: 128M
-
+      placement:
+        constraints:
+          - node.role == manager
+          
   influxdb:
     image: influxdb:1.7
     volumes:
@@ -53,7 +56,10 @@ services:
         reservations:
           cpus: '0.30'
           memory: 128M
-
+      placement:
+        constraints:
+          - node.role == manager
+          
   agent:
     image: swarmpit/agent:latest
     environment:
